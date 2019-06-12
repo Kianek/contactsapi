@@ -12,6 +12,8 @@ namespace ContactsApi.Users
         public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        // Navigation Properties
         public ICollection<Contact> Contacts { get; set; }
 
     }
