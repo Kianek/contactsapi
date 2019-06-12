@@ -16,7 +16,7 @@ namespace ContactsApi.Users
 
         public UserDto(User user)
         {
-            Id = user.UserId;
+            Id = user.Id;
             FirstName = user.FirstName;
             LastName = user.LastName;
             Contacts = user.Contacts;
