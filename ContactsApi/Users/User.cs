@@ -7,9 +7,8 @@ using ContactsApi.Contacts;
 
 namespace ContactsApi.Users
 {
-    public class User : IdentityUser
+    public class User : IdentityUser<int>
     {
-        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
