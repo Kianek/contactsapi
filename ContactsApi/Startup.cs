@@ -14,6 +14,8 @@ namespace ContactsApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IUserFactory<UserDto>, UserDtoFactory>();
+
             services.AddIdentity<User, IdentityRole>();
             services.AddDbContext<ContactsDbContext>();
             services.AddMvc();
