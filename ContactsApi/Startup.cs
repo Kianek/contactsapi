@@ -14,15 +14,30 @@ namespace ContactsApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IUserFactory<UserDto>, UserDtoFactory>();
-
             services.AddIdentity<User, IdentityRole>();
             services.AddDbContext<ContactsDbContext>();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
+
+                // User settings.
+                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-._@+";
+                options.User.RequireUniqueEmail = true;
+            });
+
             services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
         }
     }
