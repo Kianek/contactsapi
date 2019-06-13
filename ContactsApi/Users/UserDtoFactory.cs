@@ -1,10 +1,18 @@
 namespace ContactsApi.Users
 {
-  public class UserDtoFactory : IUserFactory<UserDto>
-  {
-    public UserDto Build(User user)
+    public class UserDtoFactory : IUserFactory<UserDto>
     {
-      return new UserDto(user);
+        private UserDto user;
+
+        // Instantiates a new UserDto.
+        public UserDtoFactory() => user = new UserDto();
+
+        // Instantiates a new UserDto with a User's front-facing properties.
+        public UserDtoFactory(User user) => this.user = new UserDto(user);
+
+        public UserDto Build()
+        {
+            return this.user;
+        }
     }
-  }
 }
