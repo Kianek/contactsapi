@@ -14,6 +14,7 @@ namespace ContactsApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            // Configure Dependencies
             services.AddIdentity<User, IdentityRole>();
             services.AddDbContext<ContactsDbContext>();
 
