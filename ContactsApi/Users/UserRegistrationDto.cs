@@ -7,11 +7,13 @@ namespace ContactsApi.Users
 {
     public class UserRegistrationDto
     {
+        public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public UserRegistrationDto(string email, string password)
+        public UserRegistrationDto(string username, string email, string password)
         {
+            Username = username;
             Email = email;
             Password = password;
         }
