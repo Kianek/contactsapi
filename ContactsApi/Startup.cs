@@ -14,8 +14,14 @@ namespace ContactsApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add Services
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserRegistrationService, UserRegistrationService>();
+
             // Configure Dependencies
-            services.AddIdentity<User, IdentityRole>();
+            services.AddDefaultIdentity<User>()
+                .AddEntityFrameworkStores<ContactsDbContext>()
+                .AddDefaultTokenProviders();
             services.AddDbContext<ContactsDbContext>();
 
             services.Configure<IdentityOptions>(options =>
@@ -39,7 +45,7 @@ namespace ContactsApi
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseAuthentication();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
         }
     }
 }
