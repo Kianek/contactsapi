@@ -18,10 +18,12 @@ namespace ContactsApi.Users
         // Attempt to create a new user, and return the result.
         public async Task<IdentityResult> Register(UserRegistrationDto user)
         {
-            // TODO: Add logger
+            // TODO: Add logger.
             var newUser = new User { Email = user.Email };
             var result = await userManager.CreateAsync(newUser, user.Password);
             return result;
         }
+
+        // TODO: Remove a user.
     }
 }
