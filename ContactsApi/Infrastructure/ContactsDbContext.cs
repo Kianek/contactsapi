@@ -1,6 +1,7 @@
 ﻿using ContactsApi.Addresses;
 using ContactsApi.Contacts;
 using ContactsApi.Users;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,10 @@ using System.Threading.Tasks;
 
 namespace ContactsApi.Infrastructure
 {
-  public class ContactsDbContext : DbContext
+  public class ContactsDbContext : IdentityDbContext
   {
     DbSet<Address> Addresses { get; set; }
     DbSet<Contact> Contacts { get; set; }
-    DbSet<User> Users { get; set; }
-
-    public ContactsDbContext(DbContextOptions<ContactsDbContext> options) : base(options)
-    { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -31,7 +28,7 @@ namespace ContactsApi.Infrastructure
       // Configure User
       modelBuilder.Entity<User>(entity =>
       {
-        entity.HasMany<Contact>(user => user.Contacts)
+        entity.HasMany(user => user.Contacts)
               .WithOne(contact => contact.User);
       });
 
@@ -39,7 +36,7 @@ namespace ContactsApi.Infrastructure
       modelBuilder.Entity<Contact>(entity =>
       {
         entity
-              .HasMany<Address>(contact => contact.Addresses)
+              .HasMany(contact => contact.Addresses)
               .WithOne(address => address.Contact);
       });
     }
