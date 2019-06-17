@@ -14,6 +14,5 @@ namespace ContactsApi.Users
 
         // Navigation Properties
         public ICollection<Contact> Contacts { get; set; }
-
     }
 }
