@@ -1,0 +1,17 @@
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\xunit.runner.utility.netcoreapp10.dll
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\ContactsApi.Tests.deps.json
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\ContactsApi.Tests.runtimeconfig.json
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\ContactsApi.Tests.runtimeconfig.dev.json
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\ContactsApi.Tests.dll
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\ContactsApi.Tests.pdb
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\ContactsApi.dll
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\bin\Debug\netcoreapp2.2\ContactsApi.pdb
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\obj\Debug\netcoreapp2.2\ContactsApi.Tests.csprojAssemblyReference.cache
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\obj\Debug\netcoreapp2.2\ContactsApi.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\obj\Debug\netcoreapp2.2\ContactsApi.Tests.AssemblyInfoInputs.cache
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\obj\Debug\netcoreapp2.2\ContactsApi.Tests.AssemblyInfo.cs
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\obj\Debug\netcoreapp2.2\ContactsApi.Tests.csproj.CopyComplete
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\obj\Debug\netcoreapp2.2\ContactsApi.Tests.dll
+C:\Users\Kianek\source\repos\ContactsApi\ContactsApi.Tests\obj\Debug\netcoreapp2.2\ContactsApi.Tests.pdb
