@@ -9,7 +9,7 @@ namespace ContactsApi.Users
 {
   public class UserDto
   {
-    public int Id { get; set; }
+    public string Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public IEnumerable<Contact> Contacts { get; set; }
@@ -22,7 +22,7 @@ namespace ContactsApi.Users
       Contacts = user.Contacts;
     }
 
-    public UserDto(int id, string firstName, string lastName, IEnumerable<Contact> contacts)
+    public UserDto(string id, string firstName, string lastName, IEnumerable<Contact> contacts)
     {
       Id = id;
       FirstName = firstName;
