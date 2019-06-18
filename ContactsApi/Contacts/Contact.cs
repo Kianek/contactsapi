@@ -17,7 +17,7 @@ namespace ContactsApi.Contacts
         public string CellPhone { get; set; }
 
         // Navigation Properties
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public User User { get; set; }
         public ICollection<Address> Addresses { get; set; }
     }
