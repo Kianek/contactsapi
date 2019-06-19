@@ -8,6 +8,6 @@ namespace ContactsApi.Users
         /// </summary>
         /// <param name="user"></param>
         /// <returns>UserDto</returns>
-        UserDto ConvertToDtoFromUser(User user);
+        UserDto ConvertToDtoFromUser(AppUser user);
     }
 }

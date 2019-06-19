@@ -11,14 +11,14 @@ namespace ContactsApi.Users
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private SignInManager<User> signInManager;
-        private UserManager<User> userManager;
+        private SignInManager<AppUser> signInManager;
+        private UserManager<AppUser> userManager;
         private IUserService userService;
         private IUserRegistrationService registrationService;
 
         public UsersController(
-            SignInManager<User> signInManager,
-            UserManager<User> userManager,
+            SignInManager<AppUser> signInManager,
+            UserManager<AppUser> userManager,
             IUserService userService,
             IUserRegistrationService registrationService)
         {

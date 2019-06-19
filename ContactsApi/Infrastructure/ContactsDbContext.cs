@@ -26,7 +26,7 @@ namespace ContactsApi.Infrastructure
 
 
       // Configure User
-      modelBuilder.Entity<User>(entity =>
+      modelBuilder.Entity<AppUser>(entity =>
       {
         entity.HasMany(user => user.Contacts)
               .WithOne(contact => contact.User);

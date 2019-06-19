@@ -19,7 +19,7 @@ namespace ContactsApi
             services.AddTransient<IUserRegistrationService, UserRegistrationService>();
 
             // Configure Dependencies
-            services.AddDefaultIdentity<User>()
+            services.AddDefaultIdentity<AppUser>()
                 .AddEntityFrameworkStores<ContactsDbContext>()
                 .AddDefaultTokenProviders();
             services.AddDbContext<ContactsDbContext>();

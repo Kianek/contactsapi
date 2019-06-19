@@ -14,7 +14,7 @@ namespace ContactsApi.Users
     public string LastName { get; set; }
     public IEnumerable<Contact> Contacts { get; set; }
 
-    public UserDto(User user)
+    public UserDto(AppUser user)
     {
       Id = user.Id;
       FirstName = user.FirstName;

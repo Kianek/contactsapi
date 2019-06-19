@@ -8,9 +8,9 @@ namespace ContactsApi.Users
 {
     public class UserRegistrationService : IUserRegistrationService
     {
-        private UserManager<User> userManager;
+        private UserManager<AppUser> userManager;
 
-        public UserRegistrationService(UserManager<User> userManager)
+        public UserRegistrationService(UserManager<AppUser> userManager)
         {
             this.userManager = userManager;
         }
@@ -19,7 +19,7 @@ namespace ContactsApi.Users
         public async Task<IdentityResult> Register(UserRegistrationDto user)
         {
             // TODO: Add logger.
-            var newUser = new User { Email = user.Email };
+            var newUser = new AppUser { Email = user.Email };
             var result = await userManager.CreateAsync(newUser, user.Password);
             return result;
         }
