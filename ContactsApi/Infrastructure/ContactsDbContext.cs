@@ -15,10 +15,7 @@ namespace ContactsApi.Infrastructure
     DbSet<Address> Addresses { get; set; }
     DbSet<Contact> Contacts { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder builder)
-    {
-      builder.UseSqlite("Data Source=ContactsApi.db;");
-    }
+    public ContactsDbContext(DbContextOptions<ContactsDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
