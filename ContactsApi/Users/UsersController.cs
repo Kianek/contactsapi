@@ -28,7 +28,7 @@ namespace ContactsApi.Users
             this.registrationService = registrationService;
         }
 
-        // Login
+        // POST - api/users/login
         [HttpPost("login")]
         public async Task<ActionResult> Login([FromBody]UserLoginDto loginDto)
         {
@@ -53,8 +53,6 @@ namespace ContactsApi.Users
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody]UserRegistrationDto newUser)
         {
-            //var user = new User { UserName = registration.Username, Email = registration.Email };
-            //var result = await userManager.CreateAsync(user, registration.Password);
             var result = await registrationService.Register(newUser);
             if (result.Succeeded)
             {
