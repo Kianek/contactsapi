@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -12,6 +13,10 @@ namespace ContactsApi
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; set; }
+
+        public Startup(IConfiguration configuration) => Configuration = configuration;
+
         public void ConfigureServices(IServiceCollection services)
         {
             // Add Services
@@ -22,7 +27,8 @@ namespace ContactsApi
             services.AddDefaultIdentity<AppUser>()
                 .AddEntityFrameworkStores<ContactsDbContext>()
                 .AddDefaultTokenProviders();
-            services.AddDbContext<ContactsDbContext>();
+            services.AddDbContext<ContactsDbContext>(options => 
+                options.UseSqlite(Configuration["Data:ContactsApi:ConnectionString"]));
 
             services.Configure<IdentityOptions>(options =>
             {
