@@ -24,8 +24,15 @@ namespace ContactsApi.Users
             return result;
         }
 
-        // TODO: Update a user.
+        public async Task<IdentityResult> Delete(UserRegistrationDto user)
+        {
+            // Find the user to delete.
+            var userToDelete = await userManager.FindByEmailAsync(user.Email);
 
-        // TODO: Remove a user.
+            // Attempt to remove the user's account from the DB.
+            var result = await userManager.DeleteAsync(userToDelete);
+
+            return result;
+        }
     }
 }
