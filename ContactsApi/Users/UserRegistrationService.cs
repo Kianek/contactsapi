@@ -19,10 +19,12 @@ namespace ContactsApi.Users
         public async Task<IdentityResult> Register(UserRegistrationDto user)
         {
             // TODO: Add logger.
-            var newUser = new AppUser { Email = user.Email };
+            var newUser = new AppUser { UserName = user.UserName, FirstName = user.FirstName, LastName = user.LastName, Email = user.Email};
             var result = await userManager.CreateAsync(newUser, user.Password);
             return result;
         }
+
+        // TODO: Update a user.
 
         // TODO: Remove a user.
     }
