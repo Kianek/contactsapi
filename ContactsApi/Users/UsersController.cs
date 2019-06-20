@@ -32,14 +32,17 @@ namespace ContactsApi.Users
         [HttpPost("login")]
         public async Task<ActionResult> Login([FromBody]UserLoginDto loginDto)
         {
-            // TODO: convert the user to a UserDto
             var user = await userManager.FindByEmailAsync(loginDto.Email);
-            var result = await signInManager.PasswordSignInAsync(user, loginDto.Password, false, false);
 
-            if (result.Succeeded)
+            if (user != null)
             {
-                var formattedUser = userService.ConvertToDtoFromUser(user);
-                return Ok(formattedUser);
+                var result = await signInManager.PasswordSignInAsync(user, loginDto.Password, false, false);
+
+                if (result.Succeeded)
+                {
+                    var formattedUser = userService.ConvertToDtoFromUser(user);
+                    return Ok(formattedUser);
+                }
             }
             return BadRequest(new { Message = "Invalid email or password" });
         }
@@ -53,6 +56,11 @@ namespace ContactsApi.Users
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody]UserRegistrationDto newUser)
         {
+            if (newUser == null)
+            {
+                return BadRequest(new { Message = "Not enough information" });
+            }
+
             var result = await registrationService.Register(newUser);
             if (result.Succeeded)
             {
@@ -63,18 +71,32 @@ namespace ContactsApi.Users
         }
 
         // DeleteAccount
-        [HttpDelete]
+        [HttpDelete("delete")]
         public async Task<IActionResult> Delete([FromBody]UserRegistrationDto userToDelete)
         {
+            if (userToDelete == null)
+            {
+                return BadRequest(new { Message = "Not enough information" });
+            }
+
             var user = await userManager.FindByEmailAsync(userToDelete.Email);
 
             if (user != null)
             {
                 var result = await userManager.DeleteAsync(user);
-                return Ok(new { Message = "Account Deleted" });
+
+                if (result.Succeeded)
+                {
+                    return Ok(new { Message = "Account Deleted" });
+                }
+                else
+                {
+                    var errors = result.Errors.Select(e => e.Description).ToList();
+                    return BadRequest(new { Errors = errors });
+                }
             }
 
-            return BadRequest(new { Message = "Unable to delete account"});
+            return BadRequest(new { Message = "Unable to delete account" });
         }
     }
 }
