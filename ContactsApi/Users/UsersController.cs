@@ -71,10 +71,10 @@ namespace ContactsApi.Users
             if (user != null)
             {
                 var result = await userManager.DeleteAsync(user);
-                return Ok("Account Deleted");
+                return Ok(new { Message = "Account Deleted" });
             }
 
-            return BadRequest("Unable to delete account");
+            return BadRequest(new { Message = "Unable to delete account"});
         }
     }
 }
