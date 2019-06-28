@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ContactsApi.Infrastructure
 {
-  public class ContactsDbContext : IdentityDbContext
+  public class ContactsDbContext : IdentityDbContext<AppUser>
   {
     DbSet<Address> Addresses { get; set; }
     DbSet<Contact> Contacts { get; set; }
